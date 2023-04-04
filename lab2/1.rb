@@ -11,4 +11,37 @@ class Student
     self.second_name=second_name
     super(id:id, phone:phone, telegram:telegram, email:email, git:git)
   end
+  #конструктор для аргументов в строке
+  def self.from_json_str(str)
+    data=JSON.parse(str).transform_keys(&:to_sym)
+    Student.new(**data)
+  end
+
+  def first_name=(first_name)
+    raise ArgumentError, 'Invalid first_name!' unless first_name.nil? || Student.validate_name?(first_name)
+    @first_name=first_name
+  end
+
+  def second_name=(second_name)
+    raise ArgumentError, 'Invalid second_name!' unless second_name.nil? || Student.validate_name?(second_name)
+    @second_name=second_name
+  end
+
+  def last_name=(last_name)
+    raise ArgumentError, 'Invalid last_name!' unless last_name.nil? || Student.validate_name?(last_name)
+    @last_name=last_name
+  end
+
+  #корректность написания имени(возможны двойные имена)
+  def self.validate_name?(name)
+    name.match(/^[А-Я][а-я]+(-[А-Я][а-я]+)*$/)
+  end
+  #имя с инициалами
+  def short_name
+    "#{last_name} #{first_name[0]}. #{second_name[0]}."
+  end
+  def get_info
+    "#{short_name}, #{find_git}, #{find_contact}"
+  end
+  
 end
