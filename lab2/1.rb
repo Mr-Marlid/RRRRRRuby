@@ -11,6 +11,7 @@ class Student
     self.second_name=second_name
     super(id:id, phone:phone, telegram:telegram, email:email, git:git)
   end
+  
   #конструктор для аргументов в строке
   def self.from_json_str(str)
     data=JSON.parse(str).transform_keys(&:to_sym)
@@ -36,12 +37,36 @@ class Student
   def self.validate_name?(name)
     name.match(/^[А-Я][а-я]+(-[А-Я][а-я]+)*$/)
   end
+  
   #имя с инициалами
   def short_name
     "#{last_name} #{first_name[0]}. #{second_name[0]}."
   end
+  
   def get_info
     "#{short_name}, #{find_git}, #{find_contact}"
   end
   
+  def to_s
+    res = "#{last_name} #{first_name} #{second_name}"
+    res += " id=#{id}" unless id.nil?
+    res += " phone=#{phone}" unless phone.nil?
+    res += " #{find_git}"
+    res += " telegram=#{telegram}" unless telegram.nil?
+    res += " email=#{email}" unless email.nil?
+    res
+  end
+
+  def to_hash
+    info_hash = {}
+    %i[last_name first_name second_name id phone telegram email git].each do |field|
+      info_hash[field] = send(field) unless send(field).nil?
+    end
+    info_hash
+  end
+
+  def to_json_str
+    JSON.generate(to_hash)
+  end
+
 end
