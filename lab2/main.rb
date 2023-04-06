@@ -5,5 +5,5 @@ test1 = Student.new({name:'Дмитрий', surname:'Петренко', lastname
 
 test2 = Student.new({name:'Любовь', surname:'Амарян', lastname:'Руслановна',
                      telegram:'@lublu)'})
-puts test1
-puts test2
+puts test1.to_s
+puts test2.to_s
