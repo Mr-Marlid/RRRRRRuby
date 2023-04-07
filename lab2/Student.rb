@@ -10,7 +10,11 @@ class Student
     self.last_name=last_name
     self.first_name=first_name
     self.second_name=second_name
-    super(id:id, phone:phone, telegram:telegram, email:email, git:git)
+    self.id = id
+    self.phone = phone
+    self.telegram = telegram
+    self.email = email
+    self.git = git
   end
   
   #конструктор для аргументов в строке
