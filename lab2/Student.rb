@@ -86,7 +86,7 @@ class Student
   end
   #?
   def self.validate_git?(git)
-    git.match(/^www\.github\.com\/\w+$/)
+    git.match(/^https:\/\/github\.com\/\w+$/)
   end
   
   
