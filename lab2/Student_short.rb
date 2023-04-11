@@ -28,6 +28,14 @@ class Student_short < Student
     end
   end
   
+  def exist_contact?
+    super
+  end
+  
+  def git?
+    super
+  end
+  
   def to_s
     result = short_name
     result += " id=#{id} " unless id.nil?
