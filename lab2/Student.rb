@@ -1,9 +1,9 @@
 #require 'json'
 class Student
   public_class_method :new
-  attr_reader :first_name, :second_name, :last_name
+  attr_reader :first_name, :second_name, :last_name, :phone, :telegram, :email, :git, :id
   
-  attr_accessor :phone, :telegram, :email, :git, :id
+  
   
   
   def initialize(last_name: nil, first_name: nil, second_name: nil, id: nil, phone:nil, telegram: nil, email: nil, git:nil)
@@ -12,9 +12,7 @@ class Student
     self.first_name=first_name
     self.second_name=second_name
     self.id = id
-    self.phone = phone
-    self.telegram = telegram
-    self.email = email
+    set_contacts(phone, telegram, email)
     self.git = git
   end
   
