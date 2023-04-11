@@ -1,4 +1,4 @@
-#require 'json'
+require 'json'
 class Student
   public_class_method :new
   attr_reader :first_name, :second_name, :last_name, :phone, :telegram, :email, :git, :id
@@ -17,10 +17,10 @@ class Student
   end
   
   #конструктор для аргументов в строке
-  #def self.from_json_str(str)
-  #  data=JSON.parse(str).transform_keys(&:to_sym)
-  #  Student.new(**data)
-  #end
+  def self.from_json_str(str)
+    data=JSON.parse(str).transform_keys(&:to_sym)
+    Student.new(**data)
+  end
 
   def first_name=(first_name)
     raise ArgumentError, 'Invalid first_name!' unless first_name.nil? || Student.validate_name?(first_name)
@@ -139,9 +139,14 @@ class Student
     self.phone = phone
     self.telegram = telegram
   end
-
-  #def to_json_str
-  #  JSON.generate(to_hash)
-  #end
+  
+  
+  def get_info
+    "#{short_name}, #{find_git}, #{find_contact}"
+  end
+  
+  def to_json_str
+    JSON.generate(to_hash)
+  end
 
 end
