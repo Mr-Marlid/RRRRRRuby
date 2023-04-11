@@ -105,7 +105,7 @@ class Student
     res = "#{last_name} #{first_name} #{second_name}"
     res += " id=#{id}" unless id.nil?
     res += " phone=#{phone}" unless phone.nil?
-    res += " #{find_git}"
+    res += " #{git}" unless git.nil?
     res += " telegram=#{telegram}" unless telegram.nil?
     res += " email=#{email}" unless email.nil?
     res
