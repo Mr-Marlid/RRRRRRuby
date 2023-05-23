@@ -30,16 +30,7 @@ class DataList
 
   #получение таблицы
   # Паттерн Шаблон
-  def get_data
-    index_id=0
-    dt = obj_list.inject([]) do |res, object|
-      row=[index_id]
-      row.append(*get_fields(object))
-      index_id+=1
-      res<<row
-    end
-    DataTable.new(dt)
-  end
+  def get_data;end
 
   def replace_objects(obj_list)
     self.obj_list=obj_list.dup
