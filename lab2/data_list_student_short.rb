@@ -13,7 +13,16 @@ class DataListStudentShort<DataList
   def get_names
     %w[№ short_name git find_contact]
   end
-
+  def get_data
+    index_id=0
+    dt = obj_list.inject([]) do |res, object|
+      row=[index_id]
+      row.append(*get_fields(object))
+      index_id+=1
+      res<<row
+    end
+    DataTable.new(dt)
+  end
   protected
   def get_fields(object)
     [object.short_name, object.git, object.find_contact]
