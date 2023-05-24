@@ -1,27 +1,28 @@
-class Data_table
-  def initialize(data)
-    self.data = data
-  end
-  
-  #9
-  def data=(new_data)
-       @data = new_data
-  end
-  
-  def get_element(row, col)
-    @data[row][col]
+class DataTable
+
+  def initialize(source_array)
+    @arr = []
+
+    source_array.each do |obj|
+      temp = [obj[0]]
+      field = obj[1].instance_variables
+      field.map! { |sym| sym.to_s.gsub(/@/,'') }
+      field.select! { |el| el != 'id' }
+      field.each { |proc| temp.push(obj[1].instance_eval(proc)) }
+      @arr.push(temp)
+    end
   end
 
-  def get_columns_count
-    @data[0].size
+  def get(i,j)
+    @arr[i][j]
   end
 
-  def get_rows_count
-    @data.size
+  def n_rows
+    @arr.size
   end
 
-  private
+  def n_columns
+    @arr[0].size
+  end
 
-  attr_reader :data
-  attr_writer :data
 end
