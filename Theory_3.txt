@@ -1,0 +1,106 @@
+  2) Шаблон (Template) - это структурный паттерн проектирования, который позволяет определять каркас алгоритма и позволяет наследникам переопределять отдельные шаги этого алгоритма без изменения его структуры. В руби шаблон может быть использован в случае, когда необходимо иметь алгоритм с фиксированной структурой, но с различными реализациями отдельных шагов.
+
+Преимущества шаблона включают в себя:
+
+Упрощение кода, позволяя использовать одну структуру для различных реализаций.
+Улучшение поддержки кода, так как изменения в алгоритме могут быть внесены только в одном месте.
+Уменьшение дублирования кода за счет переиспользования общих частей алгоритма.
+Недостатки шаблона:
+
+Ограничение гибкости алгоритма, так как определенная структура может не подходить для всех реализаций.
+Рост сложности кода, так как шаблон может включать множество классов и методов.
+
+  3) Принцип подстановки в Ruby заключается в использовании объектов, которые являются наследниками одного класса, вместо объектов другого класса, наследника которого они являются. Это позволяет использовать объекты разных классов в одном и том же контексте, если они имеют общие методы.
+
+Например, если есть классы Dog и Cat, которые оба наследуются от класса Animal, 
+и у них есть общий метод speak, то мы можем использовать их объекты вместе в методе, который ожидает объекты класса Animal.
+
+4) # Original code
+class Algorithm
+  def run
+    step_1
+    step_2
+    step_3
+  end
+
+  def step_1
+    puts "Step 1"
+  end
+
+  def step_2
+    puts "Step 2"
+  end
+
+  def step_3
+    puts "Step 3"
+  end
+end
+
+class Implementation1 < Algorithm
+  def step_1
+    puts "Implementation 1 - Step 1"
+  end
+
+  def step_2
+    puts "Implementation 1 - Step 2"
+  end
+end
+
+class Implementation2 < Algorithm
+  def step_2
+    puts "Implementation 2 - Step 2"
+  end
+
+  def step_3
+    puts "Implementation 2 - Step 3"
+  end
+end
+
+Algorithm.new.run
+Implementation1.new.run
+Implementation2.new.run
+
+# Refactored code
+class Algorithm
+  def run
+    step_1
+    step_2
+    step_3
+  end
+
+  def step_1
+    raise NotImplementedError, 'Subclasses must implement step_1'
+  end
+
+  def step_2
+    raise NotImplementedError, 'Subclasses must implement step_2'
+  end
+
+  def step_3
+    raise NotImplementedError, 'Subclasses must implement step_3'
+  end
+end
+
+class Implementation1 < Algorithm
+  def step_1
+    puts "Implementation 1 - Step 1"
+  end
+
+  def step_2
+    puts "Implementation 1 - Step 2"
+  end
+end
+
+class Implementation2 < Algorithm
+  def step_2
+    puts "Implementation 2 - Step 2"
+  end
+
+  def step_3
+    puts "Implementation 2 - Step 3"
+  end
+end
+
+Algorithm.new.run
+Implementation1.new.run
+Implementation2.new.run
