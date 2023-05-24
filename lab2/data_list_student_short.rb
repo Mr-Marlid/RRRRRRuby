@@ -2,6 +2,11 @@ require_relative 'data_list'
 require_relative 'data_table'
 
 class Data_list_student_short < Data_list
+  #9
+  def initialize(objects)
+       super
+  end
+  
   def get_names
     @data.first.attributes.keys[1..-1]
   end
