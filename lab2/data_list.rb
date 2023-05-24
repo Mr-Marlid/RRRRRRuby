@@ -15,5 +15,12 @@ class Data_list
 
   attr_reader :data
   attr_writer :data
-end
 
+  def generate_data_table(rows, columns)
+    data = rows.map.with_index(1) do |row, index|
+      [index] + row.attributes.values[1..-1]
+    end
+    Data_table.new(data)
+  end
+
+  def get_attributes_names```
