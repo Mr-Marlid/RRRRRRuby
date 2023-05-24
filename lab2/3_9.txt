@@ -1,9 +1,0 @@
-Теперь мы можем использовать этот сеттер в методах, где нам нужно заменить массив объектов, не меняя имена столбцов.
-   table = Data_table.new([['ID', 'Name', 'Age'], [1, 'John', 25], [2, 'Jane', 30]])
-   table.data = [['ID', 'Name', 'Age'], [1, 'Jack', 27], [2, 'Jill', 32]]
-
-   objects = [Student_short.new(1, 'John', 25), Student_short.new(2, 'Jane', 30)]
-   list = Data_list.new(objects)
-   list.objects = [Student_short.new(1, 'Jack', 27), Student_short.new(2, 'Jill', 32)]
-В данном примере мы создали объект Data_table и массив объектов Data_list. 
-Затем мы использовали сеттеры data= и objects= для замены массивов объектов в соответствующих классах.
