@@ -1,31 +1,45 @@
-class Data_list
-  def initialize(data)
-    self.objects = objects
+class DataList
+
+  protected
+
+  attr_writer :data
+
+  public
+
+  attr_reader :names, :data
+
+  def initialize(source_array)
+    self.arr = source_array
+    @select = []
   end
-  
-  #9 
-  def objects=(new_objects)
-       @objects = new_objects
+
+  def arr=(source_array)
+    @arr = []
+    count_obj = 1
+    source_array.each do |obj|
+      @arr.push([count_obj, obj])
+      count_obj += 1
+    end
+    nil
   end
-  
-  def select(number)
-    @data[number]
+
+  def sel(number)
+    @select.push(number)
+    nil
   end
 
   def get_selected
-    @data.map(&:id)
-  end
-
-  private
-
-  attr_reader :data
-  attr_writer :data
-
-  def generate_data_table(rows, columns)
-    data = rows.map.with_index(1) do |row, index|
-      [index] + row.attributes.values[1..-1]
+    acc = []
+    @select.each do |number|
+      result = (@arr.find { |tuple| tuple[0] == number })
+      acc.push(result[1].id)
     end
-    Data_table.new(data)
+    acc
   end
 
-  def get_attributes_names```
+  def clear_selected
+    @select = []
+    nil
+  end
+
+end
