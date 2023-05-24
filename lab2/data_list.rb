@@ -1,8 +1,13 @@
 class Data_list
   def initialize(data)
-    @data = data.freeze
+    self.objects = objects
   end
-
+  
+  #9 
+  def objects=(new_objects)
+       @objects = new_objects
+  end
+  
   def select(number)
     @data[number]
   end
