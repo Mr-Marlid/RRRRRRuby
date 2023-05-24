@@ -1,8 +1,13 @@
 class Data_table
   def initialize(data)
-    @data = data
+    self.data = data
   end
-
+  
+  #9
+  def data=(new_data)
+       @data = new_data
+  end
+  
   def get_element(row, col)
     @data[row][col]
   end
