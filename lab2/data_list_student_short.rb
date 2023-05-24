@@ -1,23 +1,16 @@
 require_relative 'data_list'
 require_relative 'data_table'
 
-class DataListStudentShort<DataList
-
-  public_class_method :new
-
-  def initialize(obj_list)
-    super
-  end
-
-  #получение массива наименования аттрибутов
+class Data_list_student_short < Data_list
   def get_names
-    %w[№ short_name git find_contact]
+    @data.first.attributes.keys[1..-1]
   end
+
   def get_data
-    %w[№ short_name git find_contact]
-  end
-  protected
-  def get_fields(object)
-    [object.short_name, object.git, object.find_contact]
+    data = @data.map.with_index(1) do |student, index|
+      [index] + student.attributes.values[1..-1]
+    end
+    Data_table.new(data)
   end
 end
+
