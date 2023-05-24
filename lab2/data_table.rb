@@ -3,6 +3,18 @@ class Data_table
     @data = data
   end
 
+  def get_element(row, col)
+    @data[row][col]
+  end
+
+  def get_columns_count
+    @data[0].size
+  end
+
+  def get_rows_count
+    @data.size
+  end
+
   private
 
   attr_reader :data
