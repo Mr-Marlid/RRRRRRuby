@@ -1,0 +1,25 @@
+---
+- :id: '0'
+  :surname: Гелик
+  :first_name: Игорь
+  :patronymic: Брабусович
+  :git: https://github.com/Mr-Marlid
+  :phone_number: "+7-777-777-77-77"
+  :telegram:
+  :email:
+- :id: '2'
+  :surname: Кума
+  :first_name: Куми
+  :patronymic: Кумо
+  :git: https://github.com/Mr-Marlid
+  :phone_number:
+  :telegram:
+  :email: mama@gmail.com
+- :id: '3'
+  :surname: Тяговка
+  :first_name: Яна
+  :patronymic: Брабкович
+  :git: https://github.com/Mr-Marlid
+  :phone_number: "+7-777-777-77-77"
+  :telegram:
+  :email:

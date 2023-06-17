@@ -1,0 +1,32 @@
+[
+  {
+    "id": "0",
+    "surname": "Гелик",
+    "first_name": "Игорь",
+    "patronymic": "Брабусович",
+    "git": "https://github.com/Mr-Marlid",
+    "phone_number": "+7-918-334-32-58",
+    "telegram": null,
+    "email": null
+  },
+  {
+    "id": "2",
+    "surname": "Гуня",
+    "first_name": "Гуми",
+    "patronymic": "Гулич",
+    "git": "https://github.com/Mr-Marlid",
+    "phone_number": null,
+    "telegram": null,
+    "email": "kefteme@gmail.com"
+  },
+  {
+    "id": "3",
+    "surname": "Куми",
+    "first_name": "Куми",
+    "patronymic": "Няма-няма",
+    "git": "https://github.com/Mr-Marlid",
+    "phone_number": "+7-918-334-32-58",
+    "telegram": null,
+    "email": null
+  }
+]
